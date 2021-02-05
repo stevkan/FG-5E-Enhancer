@@ -1,11 +1,9 @@
 function onHover(state)
-	Debug.console(state)
 	local nodeActiveCT = CombatManager.getActiveCT();
 	local nodeCT = window.getDatabaseNode(); 
 	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
 
 	if state and tokenCT then
-		Debug.console('first if statement')
 		-- add blue underlay
 		tokenCT.removeAllUnderlays(); 
 		local space = nodeCT.getChild('space');  
@@ -17,10 +15,11 @@ function onHover(state)
 		tokenCT.addUnderlay(space, CombatEnhancer.TOKENUNDERLAYCOLOR_3); 
 
 	elseif tokenCT then
-		Debug.console('second if statement')
 		-- remove all underlays, if active then put back active underlay
 		tokenCT.removeAllUnderlays(); 
+		Debug.console("nodeCT.getNodeName():" .. nodeCT.getNodeName());
 		if nodeActiveCT and nodeActiveCT.getNodeName() == nodeCT.getNodeName() then
+			Debug.console("nodeActiveCT.getNodeName:" .. nodeActiveCT.getNodeName());
 			local tokenActiveCT = CombatManager.getTokenFromCT(nodeActiveCT);
 			if tokenActiveCT then
 				local space = nodeActiveCT.getChild('space');  

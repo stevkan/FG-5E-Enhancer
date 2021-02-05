@@ -3,7 +3,7 @@
 <root>
 	<template name="token_ctentry" merge="join">
 		<token_ctentry_base merge="join">
-			<script file="ct/scripts/ct_token.lua" merge="join"/>
+			<script file="ct/scripts/ct_token.lua" merge="add"/>
 		</token_ctentry_base>
 	</template>
 </root>
