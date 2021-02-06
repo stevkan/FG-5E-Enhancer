@@ -1,4 +1,5 @@
 function onHover(state)
+	Debug.console("onHover in 5E-Enhancer:ct_token.lua");
 	local nodeActiveCT = CombatManager.getActiveCT();
 	local nodeCT = window.getDatabaseNode(); 
 	local tokenCT = CombatManager.getTokenFromCT(nodeCT);
@@ -17,6 +18,7 @@ function onHover(state)
 	elseif tokenCT then
 		-- remove all underlays, if active then put back active underlay
 		tokenCT.removeAllUnderlays(); 
+		TokenManager.updateSizeHelper(tokenCT, nodeCT);
 		Debug.console("nodeCT.getNodeName():" .. nodeCT.getNodeName());
 		if nodeActiveCT and nodeActiveCT.getNodeName() == nodeCT.getNodeName() then
 			Debug.console("nodeActiveCT.getNodeName:" .. nodeActiveCT.getNodeName());
